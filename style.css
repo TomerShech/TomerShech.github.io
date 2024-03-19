@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #282a36;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 32px;
+}
+
+.win {
+  color: #50fa7b;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.board {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.letter {
+  width: 50px;
+  height: 50px;
+  color: #f8f8f2;
+  border: 1px solid #f8f8f2;
+  border-radius: 3px;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter.exact {
+  color: #282a36;
+  background-color: #50fa7b;
+}
+
+.letter.inexact {
+  color: #282a36;
+  background-color: #f1fa8c;
+}
+
+.letter.bad {
+  background-color: #44475a;
+}
+
+.keyboard {
+  width: 350px;
+  display: grid;
+  gap: 8px;
+  place-items: center;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.key {
+  width: 100%;
+  height: auto;
+  color: #282a36;
+  background-color: #f8f8f2;
+  border: 1px solid #f8f8f2;
+  border-radius: 3px;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.key.backspace {
+  color: #f8f8f2;
+  background-color: #ff5555;
+}
+
+.key.enter {
+  color: #282a36;
+  background-color: #50fa7b;
+}
+
+@media (min-width: 640px) {
+  .board {
+    width: 350px;
+  }
+
+  .keyboard {
+    width: 400px;
+  }
+
+  .letter {
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .board {
+    width: 400px;
+  }
+
+  .keyboard {
+    width: 450px;
+  }
+
+  .letter {
+    width: 70px;
+    height: 70px;
+    font-size: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .board {
+    width: 450px;
+  }
+
+  .keyboard {
+    width: 500px;
+  }
+
+  .letter {
+    width: 80px;
+    height: 80px;
+    font-size: 56px;
+  }
+}
