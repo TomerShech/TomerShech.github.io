@@ -13,6 +13,20 @@ body {
   font-variation-settings: "wdth" 100;
 }
 
+dialog {
+  margin: auto;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem 3rem;
+  max-width: 400px;
+  z-index: 10;
+}
+
+dialog::backdrop {
+  background-color: rgba(40, 42, 54, 0.6);
+}
+
 .container {
   height: 100vh;
   display: flex;
@@ -23,9 +37,17 @@ body {
 }
 
 .win {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.win > span {
   color: #50fa7b;
-  font-size: 28px;
+  display: block;
   font-weight: 800;
+  font-size: 36px;
+  text-align: center;
+  letter-spacing: 2px;
 }
 
 .board {
@@ -131,7 +153,7 @@ body {
   }
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .board {
     width: 450px;
   }
@@ -145,4 +167,4 @@ body {
     height: 80px;
     font-size: 56px;
   }
-}
+} */

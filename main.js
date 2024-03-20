@@ -6,9 +6,27 @@ const $letterKeys = $keyboard.querySelectorAll(
 );
 const $backspaceKey = $keyboard.querySelector(".backspace");
 const $enterKey = $keyboard.querySelector(".enter");
-const hebrewLetters = "אבגדהוזחטיכלמנסעפצקרשתםןץףך";
 
-const answer = "ניטור";
+const $dialog = document.querySelector("dialog");
+const $closeDialogButton = document.querySelector("dialog button");
+
+$dialog.addEventListener("click", (event) => {
+  const dimensions = $dialog.getBoundingClientRect();
+
+  if (
+    event.clientX < dimensions.left ||
+    event.clientX > dimensions.right ||
+    event.clientY < dimensions.top ||
+    event.clientY > dimensions.bottom
+  ) {
+    $dialog.close();
+  }
+});
+
+const hebrewLetters = "אבגדהוזחטיכלמנסעפצקרשתםןץףך";
+const finalLetters = "מנצפכ";
+const finalIndices = [4, 9, 14, 19, 24, 29];
+const answer = "מבריס";
 
 let index = 0;
 let attempt = 1;
@@ -17,6 +35,21 @@ let word = "";
 const EXACT_MATCH = "exact";
 const INEXACT_MATCH = "inexact";
 const BAD_MATCH = "bad";
+
+const toFinalLetter = (letter) => {
+  switch (letter) {
+    case "מ":
+      return "ם";
+    case "נ":
+      return "ן";
+    case "צ":
+      return "ץ";
+    case "פ":
+      return "ף";
+    case "כ":
+      return "ך";
+  }
+};
 
 const letterCb = (event) => {
   const letter = event.target.textContent;
@@ -38,14 +71,18 @@ const enterCb = () => {
 };
 
 const showWinGreeting = () => {
-  const $h1 = document.createElement("h1");
-  const $textNode = document.createTextNode(`ניצחת! המילה הייתה: "${answer}"`);
-  $h1.append($textNode);
-  $h1.classList.add("win");
-  $container.prepend($h1);
+  const $answerSpan = document.createElement("span");
+  const $textNode = document.createTextNode(answer);
+  $answerSpan.append($textNode);
+  $dialog.querySelector("h1").append($answerSpan);
+  $dialog.showModal();
 };
 
 const typeLetter = (letter) => {
+  if (finalIndices.includes(index) && finalLetters.includes(letter)) {
+    letter = toFinalLetter(letter);
+  }
+
   $board.children[index].textContent = letter;
   index++;
   word = updateWord();
