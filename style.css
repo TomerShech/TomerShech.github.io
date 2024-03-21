@@ -4,6 +4,12 @@
   padding: 0;
 }
 
+html,
+body,
+.container {
+  height: 100%;
+}
+
 body {
   background-color: #282a36;
   font-family: "Open Sans", sans-serif;
@@ -28,7 +34,6 @@ dialog::backdrop {
 }
 
 .container {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

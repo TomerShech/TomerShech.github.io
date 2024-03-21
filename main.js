@@ -111,6 +111,30 @@ const checkWord = () => {
     $enterKey.removeEventListener("click", enterCb);
   }
 
+  fetch("http://localhost:3000/check-word", {
+    method: "POST",
+    body: JSON.stringify({
+      word,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  fetch("http://localhost:3000/random-word", { method: "GET" })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
   const matches = [];
 
   for (let i = 0; i < answer.length; i++) {

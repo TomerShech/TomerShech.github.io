@@ -1,0 +1,27 @@
+{
+  "name": "wordle",
+  "version": "0.1.0",
+  "description": "Hebrew Wordle",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Hebrew",
+    "Wordle"
+  ],
+  "repository": {
+    "url": "https://github.com/TomerShech/TomerShech.github.io"
+  },
+  "author": "Tomer Shechner",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
